@@ -1,0 +1,33 @@
+<% include partial/head %>
+<body>
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="text-center">
+      <h1 class=" fa fa-user"> Profile</h1><br>
+      <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
+      <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
+      <hr>
+      <div class="jumbotron">
+        <% if (user.local.email != null) { %>  
+          <img src="https://avatars.io/gravatar/<%= user.local.email %>/140" class="img-circle"><br>
+          <strong>email</strong>: <%= user.local.email %><br>
+          <% } %>
+
+          <% if (user.facebook.id != null) { %>  
+            <h2 class="fa fa-facebook"> Facebook</h2><br>
+            <img src="http://graph.facebook.com/<%= user.facebook.id %>/picture" class="img-circle"><br>
+            <strong>id</strong>: <%= user.facebook.id %><br>
+          <strong>email</strong>: <%= user.facebook.email %><br>
+          <strong>name</strong>: <%= user.facebook.name %>
+          <% } %>
+
+  <% if (user.google.id != null) { %>  
+    <h2 class="fa fa-google-plus"> Google</h2><br>
+  <img src="https://avatars.io/gravatar/<%= user.google.email %>/140" class="img-circle"><br>
+  <strong>email</strong>: <%= user.google.email %><br>
+  <strong>name</strong>: <%= user.google.name %>
+  <% } %>  
+</div>
+</div>
+</div>
+</body>
+</html>
